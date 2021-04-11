@@ -19,7 +19,27 @@ namespace QCHack.Task2 {
     // will be 1/√3|001⟩ ⊗ |1⟩ + 1/√3|110⟩ ⊗ |1⟩ + 1/√3|111⟩ ⊗ |0⟩.
     //
     operation Task2_ValidTriangle (inputs : Qubit[], output : Qubit) : Unit is Adj+Ctl {
-        // ...
+        // use or_result = Qubit();
+        // //use and_result = Qubit();
+        // within{
+        //     X(or_result);
+        //     (ControlledOnInt(0, X))(inputs, or_result);
+
+        //     Controlled X(inputs, output);
+        // }apply{
+        //     CNOT(or_result, output);
+        // }
+
+        // within{
+        //     X(output);
+        //     (ControlledOnInt(0, X))(inputs, output);
+        // }apply{
+        //     Controlled X(inputs, output);
+        // }
+
+        X(output);
+        (ControlledOnInt(0, X))(inputs, output);
+        Controlled X(inputs, output);
     }
 }
 

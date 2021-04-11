@@ -1,6 +1,7 @@
 namespace QCHack.Task1 {
     open Microsoft.Quantum.Canon;
     open Microsoft.Quantum.Intrinsic;
+    open Microsoft.Quantum.Arrays;
 
     // Task 1 (1 point). f(x) = 1 if x is divisible by 4
     //         
@@ -21,7 +22,8 @@ namespace QCHack.Task1 {
     // will be 1/√3|001⟩ ⊗ |1⟩ + 1/√3|100⟩ ⊗ |0⟩ + 1/√3|111⟩ ⊗ |0⟩.
     //
     operation Task1_DivisibleByFour (inputs : Qubit[], output : Qubit) : Unit is Adj+Ctl {
-        // ...
+        let PatternFour = ControlledOnBitString([false, false], X);
+        PatternFour(inputs, output);
     }
 }
 
